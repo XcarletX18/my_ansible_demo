@@ -1,0 +1,24 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Update the Index
+    apt: 
+      update_cache: yes
+
+  - name: My First Install
+    apt:
+      name: apache2
+      state: latest
+  
+  - name: My 2nd Install
+    apt:
+      name: libapache2-mod-php
+      state: latest
+  
+  - name: Remove Package
+    apt:
+      name: libapache2-mod-php
+      state: absent
